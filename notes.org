@@ -1,0 +1,35 @@
+* Things to do:
+** DCEL Related
+*** Vertices
+    boundary check calls
+    translate in a direction
+
+*** Edges
+    intersect edges and split automatically,
+    translate an edge in a direction
+    subdivide
+    
+*** Faces
+    improve edgelists
+    procedural calls of add, remove edges and vertices,
+    reconnect edges and vertices,
+    scale,
+    collision check two faces
+    translate faces in a direction
+    convex hull from vertices
+
+*** General
+
+
+
+** CityGen Related
+   Generate a heightmap
+   draw lines that follow a direction and respect the heightmap
+   draw lines that split from a line: both perpendicular, and as a tree branch
+   intersect two lines
+   Subdivide a face consistently through drawing lines
+   lines with open nodes perpendicular, streets take up perpendicular nodes,
+   -- and walk the perimeter to get the boundaries of building sites
+   
+   get a convex hull of nodes, collapse lines to a central point,
+   add circular lines around a point.
