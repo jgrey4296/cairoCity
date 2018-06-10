@@ -2,13 +2,13 @@
 all: draw
 
 draw:
-	python citygen.py
+	python main.py --dontsave
 
 oneshot:
-	python citygen.py -l -t 1 -d --drawsteps
+	python main.py -l -t 1 -d --drawsteps --dontsave
 
 static:
-	python citygen.py --static -l
+	python main.py --static -l --dontsave
 
 clean:
 	rm -r imgs
