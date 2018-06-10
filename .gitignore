@@ -2,3 +2,5 @@ imgs
 .DS_Store
 log.*
 *.pickle
+__pycache__
+*.pyc
