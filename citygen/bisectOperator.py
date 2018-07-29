@@ -4,7 +4,7 @@ class BisectOperator:
     """ Operator To Bisect A Face Appropriately """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     def operate(self, draw=True, override=False):

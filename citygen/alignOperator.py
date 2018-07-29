@@ -4,7 +4,7 @@ class AlignOperator:
     """ Operator to Align a selection of objects """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     def operate(self, draw=True, override=False):

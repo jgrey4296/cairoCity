@@ -3,7 +3,7 @@ class PlantOperator:
     """ Operator to place foliage in squares or on streets """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

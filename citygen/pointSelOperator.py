@@ -3,7 +3,7 @@ class PointSelOperator:
     """ Operator to select a point in the map """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

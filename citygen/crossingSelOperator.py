@@ -3,7 +3,7 @@ class CrossingSelOperator:
     """ Operator to Select an edge intersection, resolved or not  """
 
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

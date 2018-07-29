@@ -4,7 +4,7 @@ class WallOperator:
 
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

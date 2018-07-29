@@ -3,7 +3,7 @@ class CloneOperator:
     """ Operator to Clone an existing part of the city and place it elsewhere """
 
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

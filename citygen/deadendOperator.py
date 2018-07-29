@@ -3,7 +3,7 @@ class DeadendOperator:
     """ Operator to create a deadend road """
 
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

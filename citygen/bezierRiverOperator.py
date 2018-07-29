@@ -26,6 +26,7 @@ class BezierRiverOperator(OperatorTemplate):
                  deviance=0.2,segment_min=0.1,segment_max=0.3,
                  bsel_balance=None):
         assert(segment_min <= segment_max)
+        super().__init__()
         if bsel_balance is None:
             bsel_balance = np.array([0.5])
         #the number of subdivisions of the main river line
@@ -40,28 +41,8 @@ class BezierRiverOperator(OperatorTemplate):
         #bezier type of a subdivision 
         self.bsel_balance = bsel_balance
         
-        #Required:
-        self.delta = []
-        self.dc = None
-        self.i = None
-        
     def is_oneshot(self):
         return True
-
-    def __enter__(self):
-        logging.info("Entering RiverTick Context")
-    
-    
-    def __exit__(self, type, value, traceback):
-        logging.info("Exiting RiverTick Context")
-        if value is not None:
-            logging.warning("Unwinding")
-            self.unwind()
-        self.dc = None
-        self.i = None
-        self.delta = []
-        #if exiting with an error,
-        #undo the operations
 
     def __call__(self, draw=True, override=False):
         self.delta = []
@@ -126,44 +107,59 @@ class BezierRiverOperator(OperatorTemplate):
         if not draw:
             return self.delta
 
-        #todo: Swap for a SampleSpec
         vecSampleData = sample_specs.VectorSample({
             "type" : SampleE.VECTOR,
             "vector" : np.array([0.3,0.2], dtype=np.float),
             "distance" : 600,
-            "sample_amnt" : 100,
+            "sample_amnt" : 1.5,
             "vec_amnt" : 50,
             'radius' : 3,
             'colour' : np.array([0,1,1,1], dtype=np.float)
         })
-        
+
+        angleSampleData = sample_specs.AngleSample({
+            "sample_amnt" : 3,
+            "radRange": [1, 1.5],
+            "vec_amnt" : 4,
+            "distance" : 300,
+            "radius" : 4,
+            "shuffle" : False,
+            "incRange": [0.004,0.008],
+            "colour" : np.array([0.5,0.6, 0.2, 0.3]),
+            "easing_1" : [3,1, easings.CODOMAIN.FULL, 0]
+        })
+
+        circleSampleData = sample_specs.CircleSample({
+            "sample_amnt" : 1.5,
+            "distance" : 400,
+            "vec_amnt" : 100,
+            "radius" : 2,
+            "shuffle" : True,
+            "colour" : np.array([0.2,0.6,0.4,0.1]),
+            "easing_1" : [1, 3, easings.CODOMAIN.FULL, 5],
+            "easing_2" : [3, 2, easings.CODOMAIN.FULL, 0],
+        })
+
+        #Use a specification
+        sampleData = angleSampleData
         edges = self.dc.createBezier(beziers,
                                      edata={'river':True,
-                                            EdgeE.WIDTH: 4,
-                                            EdgeE.SAMPLE : vecSampleData,
+                                            EdgeE.WIDTH: 1,
+                                            EdgeE.SAMPLE : sampleData,
                                             EdgeE.NULL : True
                                      },
-                                     vdata={VertE.NULL : True})
+                                     vdata={VertE.NULL : True},
+                                     single=True)
         self.delta += edges
-        
         return self.delta
-
-    def unwind(self):
-        self.dc.purge(targets=self.delta)
-        self.delta = []
-    
-
+        
     def setup_values(self, bbox):
         """ Get the lengths, widths and deviance values, from 
         a passed in bbox """
-        bbox_min = bbox[:2].min()
-        bbox_max = bbox[2:].max()
-        bbox_range = bbox_max - bbox_min
-        mid_way = int(bbox_range * 0.5)
+        bbox_min, bbox_max, bbox_range, mid_way = super().setup_values(bbox)
+        
         lengthRange = (bbox_range * self.segment_range[0], bbox_range * self.segment_range[1])
         widthRange = (bbox_range * self.width_range[0], bbox_range * self.width_range[1])
         devianceAmnt = bbox_range * self.deviance
 
         return (bbox_min, bbox_max, mid_way, lengthRange, widthRange, devianceAmnt)
-
-        

@@ -4,7 +4,7 @@ class WaterfillOperator:
     with water """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

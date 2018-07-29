@@ -3,7 +3,7 @@ class DestroyOperator:
     """ Operator to Destroy a random or selected component """
 
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

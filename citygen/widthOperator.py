@@ -4,7 +4,7 @@ class WidthOperator:
     """ Operator to apply widths to roads and modify effected faces """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

@@ -3,7 +3,7 @@ class SpaceOperator:
     """ Operator to force and claim a space in the city """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     def operate(self, draw=True, override=False):

@@ -3,7 +3,7 @@ class FlowOperator:
     """ Operator To run a flow from designated starting points """
 
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

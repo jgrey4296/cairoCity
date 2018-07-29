@@ -3,7 +3,7 @@ class ZoneSelOperator:
     """ Operator to select a zone with particular characteristics """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

@@ -5,7 +5,7 @@ class ZoneCompletionOperator:
     and complete them """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

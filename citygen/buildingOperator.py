@@ -3,7 +3,7 @@ class BuildingOperator:
     """ An Operator to place a building in a free spot """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

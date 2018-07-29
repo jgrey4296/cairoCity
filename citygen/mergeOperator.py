@@ -3,7 +3,7 @@ class MergeOperator:
     """ Operator to combine two or more adjacent components """
 
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

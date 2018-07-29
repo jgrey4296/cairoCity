@@ -3,7 +3,7 @@ class LengthOperator:
     """ Operator To Verify Lengths """
 
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

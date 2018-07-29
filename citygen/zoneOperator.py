@@ -3,7 +3,7 @@ class ZoneOperator:
     """ Operator to create a zone/face with particular characteristics """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

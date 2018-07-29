@@ -3,7 +3,7 @@ class BuildingSelOperator:
     """ Operator to Select an existing building """
 
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

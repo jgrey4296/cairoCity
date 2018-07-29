@@ -4,7 +4,7 @@ class RotateOperator:
     """ Operator to Rotate a segment of the city """
     
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     

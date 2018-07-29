@@ -3,7 +3,7 @@ class MoveOperator:
     """ An Operator to move selected components """
 
     def __init__(self):
-        self.deta = []
+        self.delta = []
         return
 
     
